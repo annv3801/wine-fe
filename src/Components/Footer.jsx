@@ -3,11 +3,11 @@ import React from 'react'
 const Footer = () => {
     return (
         <div className="container mx-auto py-6 md:py-10 px-4 md:px-0 custom-font">
-            <a href=""><img src="https://readymadeui.com/readymadeui.svg" alt="logo"
-                            className='md:w-[170px] w-36'/>
+            <a href=""><img src="/icon/Screenshot_3.png" alt="logo"
+                            className='h-6 md:h-10'/>
             </a>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                <div className="bg-[#f6f9fc] rounded-lg px-5 pb-5">
+                <div className="bg-[#e9e9e9] rounded-lg px-5 pb-5">
                     <h3>Liên hệ</h3>
                     <div className="flex gap-5 mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" className="fill-current my-auto" viewBox="0 0 384 512">
@@ -29,7 +29,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-[#f6f9fc] rounded-lg p-5">hi</div>
+                <div className="bg-[#e9e9e9] rounded-lg p-5">hi</div>
             </div>
         </div>
     )
