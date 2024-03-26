@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from "axios";
 
-const Footer = () => {
+const Footer = ({configData}) => {
     return (
         <div className="container mx-auto py-6 md:py-10 px-4 md:px-0 custom-font">
             <a href=""><img src="/icon/Screenshot_3.png" alt="logo"
@@ -25,7 +26,7 @@ const Footer = () => {
                         </svg>
                         <div className="flex gap-1">
                             <div>Hotline:</div>
-                            <a href="" className="hover:text-blue-500">096.609.3801</a>
+                            <a href={`tel:${configData?.phoneNumber}`} className="hover:text-blue-500">{configData?.phoneNumber?.replace(/(\d{3})(\d{3})(\d{4})/, "$1.$2.$3")}</a>
                         </div>
                     </div>
                 </div>
