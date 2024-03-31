@@ -43,7 +43,7 @@ export default function Header({configData}) {
                     </svg>
                     <input type='text' placeholder='Search...' className="outline-none bg-transparent w-full text-sm"/>
                 </div>
-                <a href=""><img src="/icon/Screenshot_3.png" alt="logo"
+                <a href="/"><img src="/icon/Screenshot_3.png" alt="logo"
                                                   className='h-6 md:h-10'/>
                 </a>
                 <div className="absolute sm:right-10 right-4 flex items-center">
@@ -127,10 +127,10 @@ export default function Header({configData}) {
                     {/*    </ul>*/}
                     {/*</li>*/}
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <a href='' className='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Tại sao bạn chọn chúng tôi</a>
+                        <CustomLink to="/choose-me">Tại sao bạn chọn chúng tôi</CustomLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <a href='' className='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Quy trình thu mua</a>
+                        <CustomLink to="/process">Quy trình thu mua</CustomLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-2'>
                         <CustomLink to="/contact">Liên hệ</CustomLink>

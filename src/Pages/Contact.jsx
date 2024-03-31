@@ -16,7 +16,7 @@ const Contact = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4444/Config/View-Config', {
+                const response = await axios.get('http://103.77.247.254:19081/Config/View-Config', {
                     headers: {
                         'Accept': 'text/plain',
                     },
@@ -34,13 +34,13 @@ const Contact = () => {
     const createContact = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4444/Contact/Create-Contact', formState, {
+            const response = await axios.post('http://103.77.247.254:19081/Contact/Create-Contact', formState, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
             });
-            toast.success(response.data.message, {
+            toast.success("Cảm ơn bạn đã gửi thông tin", {
                 position: "top-right",
                 hideProgressBar: false,
                 closeOnClick: true,
