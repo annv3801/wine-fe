@@ -16,7 +16,7 @@ const Contact = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://103.77.247.254:19081/Config/View-Config', {
+                const response = await axios.get('https://api.thumuaruouhn.online/Config/View-Config', {
                     headers: {
                         'Accept': 'text/plain',
                     },
@@ -34,7 +34,7 @@ const Contact = () => {
     const createContact = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://103.77.247.254:19081/Contact/Create-Contact', formState, {
+            const response = await axios.post('https://api.thumuaruouhn.online/Contact/Create-Contact', formState, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',

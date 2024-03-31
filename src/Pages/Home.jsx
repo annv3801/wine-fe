@@ -11,7 +11,7 @@ const Home = () => {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        axios.post('http://103.77.247.254:19081/Slide/View-List-Slides', {
+        axios.post('https://api.thumuaruouhn.online/Slide/View-List-Slides', {
                 pageSize: 10,
                 currentPage: 1,
                 searchByFields: [],
@@ -33,7 +33,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('http://103.77.247.254:19081/Blog/View-Blog/HOME')
+        axios.get('https://api.thumuaruouhn.online/Blog/View-Blog/HOME')
             .then((res) => {
                 const listConfig = res.data?.data;
                 setContent(listConfig);
@@ -46,7 +46,7 @@ const Home = () => {
         <div>
             <Carousel autoSlide={true}>
                 {slider.map((s) => (
-                    <img src={`http://103.77.247.254:19081/Resources/${s.image}`} height="100%" alt={s.name} key={s.id}/>
+                    <img src={`https://api.thumuaruouhn.online/Resources/${s.image}`} height="100%" alt={s.name} key={s.id}/>
                 ))}
             </Carousel>
             <div className="bg-[#e9e9e9] py-3 md:py-10 px-2 md:px-0">
