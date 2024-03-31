@@ -1,37 +1,32 @@
-import {useEffect, useRef, useState} from "react";
-import axios from 'axios';
-import {Link, NavLink, useLocation} from "react-router-dom";
-function CustomLink({ to, children }) {
+import {useCallback, useState} from "react";
+import {Link, useLocation} from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
+function CustomLink({ to, children, onClick }) {
     const location = useLocation();
 
     return (
-        <Link to={to} className={`hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block ${location.pathname === to ? 'active-link' : 'inactive-link'}`}>
+        <Link to={to} onClick={onClick}  className={`hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block ${location.pathname === to ? 'active-link' : 'inactive-link'}`}>
             {children}
         </Link>
     );
 }
 export default function Header({configData}) {
-    const toggleBtn = useRef();
-    const collapseMenu = useRef();
+    const [isMenuOpen, setMenuOpen] = useState(false);
 
-    useEffect(() => {
-        function handleClick() {
-            if (collapseMenu.current.style.display === 'block') {
-                collapseMenu.current.style.display = 'none';
-            } else {
-                collapseMenu.current.style.display = 'block';
-            }
-        }
+    const toggleMenu = useCallback(() => {
+        setMenuOpen(!isMenuOpen);
+    }, [isMenuOpen]);
 
-        toggleBtn.current.addEventListener('click', handleClick);
-
-        return () => {
-            toggleBtn.current.removeEventListener('click', handleClick);
-        }
+    const closeMenu = useCallback(() => {
+        setMenuOpen(false);
     }, []);
 
     return (
         <header className='shadow-md bg-white font-[sans-serif]'>
+            <Helmet>
+                <title>Page Title</title>
+                <meta name="description" content="Page description" />
+            </Helmet>
             <section
                 className='flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]'>
                 <div className='left-10 absolute z-50 bg-gray-100 flex px-4 py-3 rounded-lg max-lg:hidden'>
@@ -69,7 +64,7 @@ export default function Header({configData}) {
                 </div>
             </section>
             <div className='flex flex-wrap justify-center px-10 py-3 relative'>
-                <div id="toggle" ref={toggleBtn} className='flex ml-auto lg:order-1 lg:hidden relative z-50'>
+                <div id="toggle" onClick={toggleMenu} className='flex ml-auto lg:order-1 lg:hidden relative z-50'>
                     <button className='ml-7'>
                         <svg className="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd"
@@ -78,9 +73,9 @@ export default function Header({configData}) {
                         </svg>
                     </button>
                 </div>
-                <ul id="collapseMenu" ref={collapseMenu} className='lg:!flex lg:space-x-10 max-lg:space-y-3 max-lg:hidden max-lg:w-full max-lg:my-4'>
+                <ul className={`lg:!flex lg:space-x-10 max-lg:space-y-3 ${isMenuOpen ? 'block' : 'hidden'} max-lg:w-full max-lg:my-4`}>
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <CustomLink to="/">Trang chủ</CustomLink>
+                        <CustomLink to="/" onClick={closeMenu}>Trang chủ</CustomLink>
                     </li>
                     {/*<li className='group max-lg:border-b max-lg:py-2 relative'>*/}
                     {/*    <a href=''*/}
@@ -127,13 +122,13 @@ export default function Header({configData}) {
                     {/*    </ul>*/}
                     {/*</li>*/}
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <CustomLink to="/choose-me">Tại sao bạn chọn chúng tôi</CustomLink>
+                        <CustomLink to="/choose-me" onClick={closeMenu}>Tại sao bạn chọn chúng tôi</CustomLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <CustomLink to="/process">Quy trình thu mua</CustomLink>
+                        <CustomLink to="/process" onClick={closeMenu}>Quy trình thu mua</CustomLink>
                     </li>
                     <li className='max-lg:border-b max-lg:py-2'>
-                        <CustomLink to="/contact">Liên hệ</CustomLink>
+                        <CustomLink to="/contact" onClick={closeMenu}>Liên hệ</CustomLink>
                     </li>
                 </ul>
             </div>
