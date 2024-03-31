@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wine_fe:
+    container_name: wine_fe_lasest
+    image: wine_fe_lasest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        progress: plain
+    command: serve -l 19065 /app/build -s
+    ports:
+      - "19065:19065"
+    restart: always
