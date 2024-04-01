@@ -24,8 +24,8 @@ export default function Header({configData}) {
     return (
         <header className='shadow-md bg-white font-[sans-serif]'>
             <Helmet>
-                <title>Page Title</title>
-                <meta name="description" content="Page description" />
+                <title>SHOP THU MUA RƯỢU</title>
+                <meta name="description" content="Chuyên thu mua rượu ngoại" />
             </Helmet>
             <section
                 className='flex items-center lg:justify-center relative py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]'>
