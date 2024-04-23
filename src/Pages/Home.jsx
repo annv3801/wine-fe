@@ -46,7 +46,7 @@ const Home = () => {
         <div>
             <Carousel autoSlide={true}>
                 {slider.map((s) => (
-                    <img src={`https://api.thumuaruouhn.online/Resources/${s.image}`} height="100%" alt={s.name} key={s.id}/>
+                    <img src={`https://api.thumuaruouhn.online/Uploads/${s.image}?height=700&width=1920`} height="100%" alt={s.name} key={s.id}/>
                 ))}
             </Carousel>
             <div className="bg-[#e9e9e9] py-3 md:py-10 px-2 md:px-0">
