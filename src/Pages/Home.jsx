@@ -1,11 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import Carousel from "../Components/Carousel";
 import axios from "axios";
-const slides = [
-    '/icon/banner2.jpg',
-    '/icon/banner-ruou-ngoai2IPHL.jpg',
-    '/icon/banner-ruou-ngoaiMDGVL.jpg'
-]
+import {Carousel} from "antd";
 const Home = () => {
     const [slider, setSlider] = useState([]);
     const [content, setContent] = useState([]);
@@ -44,10 +39,15 @@ const Home = () => {
     }, []);
     return (
         <div>
-            <Carousel autoSlide={true}>
-                {slider.map((s) => (
-                    <img src={`https://api.thumuaruouhn.online/Uploads/${s.image}?height=700&width=1920`} height="100%" alt={s.name} key={s.id}/>
-                ))}
+            <Carousel autoplay>
+                {slider.map((s) => {
+                    const isMobile = window.innerWidth <= 768; // or whatever breakpoint you want to use for mobile devices
+                    const height = isMobile ? 500 : 700;
+                    const width = isMobile ? 850 : 1920;
+                    return (
+                        <img src={`https://api.thumuaruouhn.online/Uploads/${s.image}?height=${height}&width=${width}`} className="lg:h-full object-cover" alt={s.name} key={s.id}/>
+                    );
+                })}
             </Carousel>
             <div className="bg-[#e9e9e9] py-3 md:py-10 px-2 md:px-0">
                 {/*<div className="container mx-auto bg-white rounded-t-3xl px-4 pt-3 md:px-10 md:pt-8 custom-font border-b-2 text-center capitalize text-blue-400 pb-2 md:pb-4">*/}
