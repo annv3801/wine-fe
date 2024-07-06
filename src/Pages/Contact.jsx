@@ -85,7 +85,7 @@ const Contact = () => {
                             </div>
                             <div className="flex gap-1">
                                 <div>Hotline-Zalo:</div>
-                                <NavLink to={`tel:${configData?.phoneNumber}`}>{configData?.phoneNumber?.replace(/(\d{3})(\d{3})(\d{4})/, "$1.$2.$3")}</NavLink>
+                                <NavLink to={`tel:${configData?.phoneNumber}`}>{configData?.phoneNumber?.replace(/(\d{4})(\d{3})(\d{3})/, "$1.$2.$3")}</NavLink>
                             </div>
                             <div className="flex gap-1">
                                 <div>Email:</div>

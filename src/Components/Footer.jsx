@@ -39,7 +39,7 @@ const Footer = ({configData}) => {
                             </svg>
                             <div className="flex gap-1">
                                 <div>Hotline - Zalo:</div>
-                                <a href={`tel:${configData?.phoneNumber}`} className="hover:text-blue-500">{configData?.phoneNumber?.replace(/(\d{3})(\d{3})(\d{4})/, "$1.$2.$3")}</a>
+                                <a href={`tel:${configData?.phoneNumber}`} className="hover:text-blue-500">{configData?.phoneNumber?.replace(/(\d{4})(\d{3})(\d{3})/, "$1.$2.$3")}</a>
                             </div>
                         </div>
                         <div className="flex gap-5 mb-3">
