@@ -9,7 +9,7 @@ const Layout = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api.thumuaruouhn.online/Config/View-Config', {
+                const response = await axios.get('https://api.ruoudutysanbay.com/Config/View-Config', {
                     headers: {
                         'Accept': 'text/plain',
                     },

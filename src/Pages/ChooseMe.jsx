@@ -10,7 +10,7 @@ const Home = () => {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        axios.get('https://api.thumuaruouhn.online/Blog/View-Blog/CHOOSEME')
+        axios.get('https://api.ruoudutysanbay.com/Blog/View-Blog/CHOOSEME')
             .then((res) => {
                 const listConfig = res.data?.data;
                 setContent(listConfig);

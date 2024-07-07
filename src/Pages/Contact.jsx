@@ -16,7 +16,7 @@ const Contact = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://api.thumuaruouhn.online/Config/View-Config', {
+                const response = await axios.get('https://api.ruoudutysanbay.com/Config/View-Config', {
                     headers: {
                         'Accept': 'text/plain',
                     },
@@ -34,7 +34,7 @@ const Contact = () => {
     const createContact = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://api.thumuaruouhn.online/Contact/Create-Contact', formState, {
+            const response = await axios.post('https://api.ruoudutysanbay.com/Contact/Create-Contact', formState, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',

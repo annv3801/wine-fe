@@ -6,7 +6,7 @@ const Home = () => {
     const [content, setContent] = useState([]);
 
     useEffect(() => {
-        axios.post('https://api.thumuaruouhn.online/Slide/View-List-Slides', {
+        axios.post('https://api.ruoudutysanbay.com/Slide/View-List-Slides', {
                 pageSize: 10,
                 currentPage: 1,
                 searchByFields: [],
@@ -28,7 +28,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        axios.get('https://api.thumuaruouhn.online/Blog/View-Blog/HOME')
+        axios.get('https://api.ruoudutysanbay.com/Blog/View-Blog/HOME')
             .then((res) => {
                 const listConfig = res.data?.data;
                 setContent(listConfig);
@@ -45,7 +45,7 @@ const Home = () => {
                     const height = isMobile ? 500 : 700;
                     const width = isMobile ? 850 : 1920;
                     return (
-                        <img src={`https://api.thumuaruouhn.online/Uploads/${s.image}?height=${height}&width=${width}`} className="lg:h-full object-cover" alt={s.name} key={s.id}/>
+                        <img src={`https://api.ruoudutysanbay.com/Uploads/${s.image}?height=${height}&width=${width}`} className="lg:h-full object-cover" alt={s.name} key={s.id}/>
                     );
                 })}
             </Carousel>
