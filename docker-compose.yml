@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  wine_fe:
+  wine_fe_lastest:
     container_name: wine_fe_lasest
     image: wine_fe_lasest
     build:
